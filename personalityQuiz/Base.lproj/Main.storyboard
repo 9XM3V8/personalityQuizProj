@@ -8,16 +8,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="personalityQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ZLw-as-qH0">
-                                <rect key="frame" x="16.666666666666657" y="396" width="360" height="85"/>
+                                <rect key="frame" x="16.666666666666657" y="399" width="360" height="85"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which Cartoon Character Are You?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQC-c3-8Lm">
                                         <rect key="frame" x="0.0" y="0.0" width="360" height="29"/>
@@ -50,28 +50,28 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cartmanTLM" translatesAutoresizingMaskIntoConstraints="NO" id="tWS-ux-aYx">
-                                <rect key="frame" x="10" y="706" width="117" height="136"/>
+                                <rect key="frame" x="10" y="682" width="117" height="136"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="136" id="Jpz-UB-dZy"/>
                                     <constraint firstAttribute="width" constant="117" id="Uy6-lQ-uYQ"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1E4D074F-2C9D-4415-80BE-B6823F78E02A" translatesAutoresizingMaskIntoConstraints="NO" id="ty0-ET-2DE">
-                                <rect key="frame" x="16" y="56" width="70" height="95"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="freddySelfie" translatesAutoresizingMaskIntoConstraints="NO" id="ty0-ET-2DE">
+                                <rect key="frame" x="16" y="59" width="70" height="95"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="XLb-Jy-qcx"/>
                                     <constraint firstAttribute="height" constant="95" id="g1V-Fv-TVJ"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squiddyDiddy" translatesAutoresizingMaskIntoConstraints="NO" id="CE6-NB-uuM">
-                                <rect key="frame" x="302" y="56" width="75" height="88"/>
+                                <rect key="frame" x="302" y="59" width="75" height="88"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="LOg-LB-SPF"/>
                                     <constraint firstAttribute="width" constant="75" id="gOL-o6-EbZ"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btasJoker" translatesAutoresizingMaskIntoConstraints="NO" id="eWX-sX-od5">
-                                <rect key="frame" x="303" y="732" width="90" height="110"/>
+                                <rect key="frame" x="303" y="708" width="90" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="llX-fm-B2l"/>
                                     <constraint firstAttribute="height" constant="110" id="rza-sn-wlx"/>
@@ -102,101 +102,94 @@
         <!--Questions View Controller-->
         <scene sceneID="vEl-HR-gkb">
             <objects>
-                <viewController id="ats-VA-7XE" customClass="questionsViewController" customModule="personalityQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ats-VA-7XE" customClass="QuestionsViewController" customModule="personalityQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IgS-g8-ItI">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="195" translatesAutoresizingMaskIntoConstraints="NO" id="eWZ-fp-YKg">
-                                <rect key="frame" x="13" y="106" width="367" height="575"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which Section Does Your Birth Month Fall Under?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNB-Qz-be7">
-                                        <rect key="frame" x="0.0" y="0.0" width="367" height="80"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="367" id="GNE-eA-Y8d"/>
-                                            <constraint firstAttribute="height" constant="80" id="hNQ-NP-Rxr"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Fak-Vh-RMD">
-                                        <rect key="frame" x="68.666666666666686" y="275" width="230" height="300"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3t-CN-fEc">
-                                                <rect key="frame" x="0.0" y="0.0" width="230" height="45"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="XU3-S9-qmF"/>
-                                                    <constraint firstAttribute="width" constant="230" id="bAM-nP-c5Q"/>
-                                                </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="gray" title="January - March">
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="23"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="janMarButtonTapped:" destination="ats-VA-7XE" eventType="touchUpInside" id="aXY-Z8-lJI"/>
-                                                    <segue destination="fE2-Ub-dSN" kind="show" identifier="showCartman" id="OiU-lo-afd"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNJ-7t-wzI">
-                                                <rect key="frame" x="0.0" y="85" width="230" height="45"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="230" id="SK1-Wh-Phx"/>
-                                                    <constraint firstAttribute="height" constant="45" id="pWj-Rh-Prb"/>
-                                                </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="gray" title="April - June">
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="23"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="aprJunButtonTapped:" destination="ats-VA-7XE" eventType="touchUpInside" id="MRN-N9-EeI"/>
-                                                    <segue destination="fE2-Ub-dSN" kind="show" id="gRC-0T-iSi"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32m-Zh-2K5">
-                                                <rect key="frame" x="0.0" y="170" width="230" height="45"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="P28-ut-aN1"/>
-                                                    <constraint firstAttribute="width" constant="230" id="Ulr-Aw-UCD"/>
-                                                </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="gray" title="July - September">
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="23"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="julSepButtonTapped:" destination="ats-VA-7XE" eventType="touchUpInside" id="sEo-sZ-fZ1"/>
-                                                    <segue destination="fE2-Ub-dSN" kind="show" identifier="showJoker" id="l7N-OE-47f"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbG-DT-esW">
-                                                <rect key="frame" x="0.0" y="255" width="230" height="45"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="B6e-Qe-Kzn"/>
-                                                    <constraint firstAttribute="width" constant="230" id="NC4-Pg-Ww4"/>
-                                                </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="gray" title="October - December">
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="23"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <segue destination="fE2-Ub-dSN" kind="show" identifier="showFreddy" id="akm-VE-zqp"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which Section Does Your Birth Month Fall Under?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNB-Qz-be7">
+                                <rect key="frame" x="13" y="106" width="367" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="367" id="0DU-Gw-oUQ"/>
-                                    <constraint firstAttribute="height" constant="575" id="6cG-fl-Wwe"/>
+                                    <constraint firstAttribute="width" constant="367" id="GNE-eA-Y8d"/>
+                                    <constraint firstAttribute="height" constant="80" id="hNQ-NP-Rxr"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Fak-Vh-RMD">
+                                <rect key="frame" x="81.666666666666686" y="381" width="230" height="300"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3t-CN-fEc">
+                                        <rect key="frame" x="0.0" y="0.0" width="230" height="45"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="janMar" label="janMar"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="XU3-S9-qmF"/>
+                                            <constraint firstAttribute="width" constant="230" id="bAM-nP-c5Q"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="January - March">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="23"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="janMarButtonTapped:" destination="ats-VA-7XE" eventType="touchUpInside" id="aXY-Z8-lJI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNJ-7t-wzI">
+                                        <rect key="frame" x="0.0" y="85" width="230" height="45"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="aprJun" label="aprJun"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="230" id="SK1-Wh-Phx"/>
+                                            <constraint firstAttribute="height" constant="45" id="pWj-Rh-Prb"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="April - June">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="23"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="aprJunButtonTapped:" destination="ats-VA-7XE" eventType="touchUpInside" id="MRN-N9-EeI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32m-Zh-2K5">
+                                        <rect key="frame" x="0.0" y="170" width="230" height="45"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="julSep" label="julSep"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="P28-ut-aN1"/>
+                                            <constraint firstAttribute="width" constant="230" id="Ulr-Aw-UCD"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="July - September">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="23"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="julSepButtonTapped:" destination="ats-VA-7XE" eventType="touchUpInside" id="sEo-sZ-fZ1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbG-DT-esW">
+                                        <rect key="frame" x="0.0" y="255" width="230" height="45"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="octDec" label="octDec"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="B6e-Qe-Kzn"/>
+                                            <constraint firstAttribute="width" constant="230" id="NC4-Pg-Ww4"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="October - December">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="23"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="octDecButtonTapped:" destination="ats-VA-7XE" eventType="touchUpInside" id="1Ve-kp-YZZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HBP-Wr-vC1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="eWZ-fp-YKg" firstAttribute="centerX" secondItem="IgS-g8-ItI" secondAttribute="centerX" id="6Fh-mV-5DY"/>
-                            <constraint firstItem="HBP-Wr-vC1" firstAttribute="bottom" secondItem="eWZ-fp-YKg" secondAttribute="bottom" constant="161" id="ZkM-wo-am2"/>
-                            <constraint firstItem="eWZ-fp-YKg" firstAttribute="top" secondItem="HBP-Wr-vC1" secondAttribute="top" constant="50" id="iHs-Ph-A0p"/>
+                            <constraint firstItem="Fak-Vh-RMD" firstAttribute="centerX" secondItem="IgS-g8-ItI" secondAttribute="centerX" id="DpV-vA-fGQ"/>
+                            <constraint firstItem="PNB-Qz-be7" firstAttribute="centerX" secondItem="IgS-g8-ItI" secondAttribute="centerX" id="UuD-tL-Q5o"/>
+                            <constraint firstItem="PNB-Qz-be7" firstAttribute="top" secondItem="HBP-Wr-vC1" secondAttribute="top" constant="50" id="dDm-sy-Pf2"/>
+                            <constraint firstItem="HBP-Wr-vC1" firstAttribute="bottom" secondItem="Fak-Vh-RMD" secondAttribute="bottom" constant="161" id="lbW-ce-Xwy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zuT-eP-yiY"/>
@@ -205,6 +198,7 @@
                         <outlet property="janMar" destination="f3t-CN-fEc" id="eTh-IO-S89"/>
                         <outlet property="julSep" destination="32m-Zh-2K5" id="Ps7-V7-oZv"/>
                         <outlet property="octDec" destination="gbG-DT-esW" id="qnA-sp-RQU"/>
+                        <segue destination="fE2-Ub-dSN" kind="show" identifier="toCharacter" id="Q1u-ix-vz5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nds-6s-vDF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -214,7 +208,7 @@
         <!--Landing View Controller-->
         <scene sceneID="fB9-Fi-EyS">
             <objects>
-                <viewController id="fE2-Ub-dSN" customClass="landingViewController" customModule="personalityQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fE2-Ub-dSN" customClass="LandingViewController" customModule="personalityQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HCl-ml-1da">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -271,16 +265,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Done"/>
+                                <connections>
+                                    <action selector="DoneButtonTapped:" destination="fE2-Ub-dSN" eventType="touchUpInside" id="Bso-Dr-1Qq"/>
+                                </connections>
                             </button>
-                            <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="Cez-Mw-mza"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="characterDescription" destination="70q-R4-r5V" id="tLz-5E-L2I"/>
                         <outlet property="characterLabel" destination="Nhf-qb-vza" id="Xgm-U8-BG6"/>
                         <outlet property="charcterImage" destination="rbp-CF-Saa" id="wBb-W4-g8a"/>
+                        <outlet property="doneButton" destination="ut1-xa-9EE" id="qSX-4R-DYh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jV-fM-Dbl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -307,13 +302,10 @@
             <point key="canvasLocation" x="826.71755725190837" y="3.5211267605633805"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="l7N-OE-47f"/>
-    </inferredMetricsTieBreakers>
     <resources>
-        <image name="1E4D074F-2C9D-4415-80BE-B6823F78E02A" width="650" height="1024"/>
         <image name="btasJoker" width="500" height="875"/>
         <image name="cartmanTLM" width="1200" height="675"/>
+        <image name="freddySelfie" width="650" height="1024"/>
         <image name="squiddyDiddy" width="1080" height="1080"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
