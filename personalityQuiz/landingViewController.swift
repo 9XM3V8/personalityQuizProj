@@ -8,8 +8,17 @@
 import UIKit
 
 class LandingViewController: UIViewController {
-
-    var receivedValue: String?
+    
+    var responses: [Answer]
+    init?(coder: NSCoder, responses: [Answer]) {
+        self.responses = responses
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+//    var receivedValue: String?
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var characterDescription: UILabel!
     @IBOutlet weak var characterLabel: UILabel!
@@ -17,41 +26,25 @@ class LandingViewController: UIViewController {
         
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
-            updateUI()
-        }
+//            updateUI()
+    }
         
-        private func updateUI() {
-            guard let value = receivedValue else { return }
-            switch value {
-            case "showCartman":
-                charcterImage.image = UIImage(named: "cartman")
-                characterLabel.text = "Eric Cartman"
-                characterDescription.text = "Eric Cartman is a central character in South Park, known for his manipulative and selfish behavior. He often displays a lack of empathy."
-                
-            case "showSquiddy":
-                charcterImage.image = UIImage(named: "squiddyMog")
-                characterLabel.text = "SquidWard"
-                characterDescription.text = "Squidward Tentacles is a character from SpongeBob SquarePants, known for his grumpy demeanor and disdain for SpongeBob."
-                
-            case "showJoker":
-                charcterImage.image = UIImage(named: "jokerImage")
-                characterLabel.text = "Joker"
-                characterDescription.text = "The Joker is a iconic villain from Batman, known for his maniacal laughter, chaotic antics, and twisted sense of humor."
-                
-            case "showFreddy":
-                charcterImage.image = UIImage(named: "freddyImage")
-                characterLabel.text = "Freddy Five Bear"
-                characterDescription.text = "Freddy Fazbear is the central character from the Five Nights at Freddy's (FNAF) video game series. He is an animatronic bear."
-                
-            default:
-                break
-            }
-        }
-    
     @IBAction func DoneButtonTapped(_ sender: Any) {
         navigationController?.dismiss(animated: true)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        calculatePersonalityResult()
+        navigationItem.hidesBackButton = true
+    }
+    func calculatePersonalityResult() {
+        let frequencyOfAnswers = responses.reduce(into: [:]) {
+            (counts, answer) in
+            counts[answer.type, default: 0] += 1
+        }
+        let mostCommonAnswer = frequencyOfAnswers.sorted { $0.1 > $1.1 }.first!.key
+        characterLabel.text = "\(mostCommonAnswer.rawValue)"
+        characterDescription.text = "\(mostCommonAnswer.definition)"
+        charcterImage.image = UIImage(named: "\(mostCommonAnswer.rawValue)")
     }
 }

@@ -19,7 +19,7 @@ struct Answer {
     var type: CharacterType
 }
 enum CharacterType: String {
-    case cartman = "showCartman", squidward = "showSquiddy", joker = "showJoker", freddy = "showFreddy"
+    case cartman = "Cartman", squidward = "Squidward", joker = "Joker", freddy = "Freddy Five Bear"
     
     var definition: String {
         switch self {
@@ -35,13 +35,34 @@ enum CharacterType: String {
     }
 }
 class QuestionsViewController: UIViewController {
+    @IBOutlet weak var questionLabel: UILabel!
+    
     @IBOutlet weak var octDec: UIButton!
     @IBOutlet weak var julSep: UIButton!
     @IBOutlet weak var aprJun: UIButton!
     @IBOutlet weak var janMar: UIButton!
     @IBOutlet weak var singleStackView: UIStackView!
+    
+    @IBOutlet weak var multiSubmitAnswerButton: UIButton!
+    @IBOutlet weak var crimeSwitch: UISwitch!
+    @IBOutlet weak var bikingSwitch: UISwitch!
+    @IBOutlet weak var pizzaSwitch: UISwitch!
+    @IBOutlet weak var gamingSwitch: UISwitch!
+    
     @IBOutlet weak var multipleStackView: UIStackView!
+    @IBOutlet weak var crimeLabel: UILabel!
+    @IBOutlet weak var bikingLabel: UILabel!
+    @IBOutlet weak var pizzaLabel: UILabel!
+    @IBOutlet weak var gamingLabel: UILabel!
+    
     @IBOutlet weak var rangedStackView: UIStackView!
+    @IBOutlet weak var rangedSlider: UISlider!
+    @IBOutlet weak var rangedSubmitAnswerButton: UIButton!
+    @IBOutlet weak var chungLiLabel: UILabel!
+    
+    @IBOutlet weak var livyDunneLabel: UILabel!
+    @IBOutlet weak var progressBar: UIProgressView!
+    var answersChosen: [Answer] = []
     var questionIndex = 0
     var questions: [Question] = [
         Question(
@@ -54,7 +75,7 @@ class QuestionsViewController: UIViewController {
                 Answer(text: "October - December", type: .freddy)
             ]
         ),
-    
+        
         Question(
             text: "What activities do you enjoy?",
             type: .multiple,
@@ -74,13 +95,94 @@ class QuestionsViewController: UIViewController {
                 Answer(text: "More So Livy Dunne", type: .squidward),
                 Answer(text: "More So Chung Li", type: .cartman),
                 Answer(text: "Chung Li", type: .freddy)
-                ]
-            )
-        ]
+            ]
+        )
+    ]
+    func updateSingleStack(using answers: [Answer]) {
+        singleStackView.isHidden = false
+        janMar.setTitle(answers[0].text, for: .normal)
+        aprJun.setTitle(answers[1].text, for: .normal)
+        julSep.setTitle(answers[2].text, for: .normal)
+        octDec.setTitle(answers[3].text, for: .normal)
+    }
+    func updateMultiStack(using answers: [Answer]) {
+        multipleStackView.isHidden = false
+        crimeSwitch.isOn = false
+        bikingSwitch.isOn = false
+        pizzaSwitch.isOn = false
+        gamingSwitch.isOn = false
+        crimeLabel.text = answers[0].text
+        bikingLabel.text = answers[1].text
+        pizzaLabel.text = answers[2].text
+        gamingLabel.text = answers[3].text
+    }
+    func updateRangeStack(using answers: [Answer]) {
+        rangedStackView.isHidden = false
+        rangedSlider.setValue(0.5, animated: false)
+        livyDunneLabel.text = answers.first?.text
+        chungLiLabel.text = answers.last?.text
+    }
+    func nextQuestion() {
+        questionIndex += 1
+        
+        if questionIndex < questions.count {
+            updateUI()
+        } else {
+            performSegue(withIdentifier: "results", sender: nil)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
         // Do any additional setup after loading the view.
+    }
+    
+    @IBSegueAction func showResults(_ coder: NSCoder) -> LandingViewController? {
+        return LandingViewController(coder: coder, responses: answersChosen)
+    }
+    @IBAction func singleAnswerButtonPressed(_ sender: UIButton) {
+        let currentAnswers = questions[questionIndex].answers
+        
+        switch sender {
+        case janMar:
+            answersChosen.append(currentAnswers[0])
+        case aprJun:
+            answersChosen.append(currentAnswers[1])
+        case julSep:
+            answersChosen.append(currentAnswers[2])
+        case octDec:
+            answersChosen.append(currentAnswers[3])
+        default:
+            break
+        }
+        nextQuestion()
+    }
+    
+    @IBAction func multipleAnswerButtonPressed() {
+        let currentAnswers = questions[questionIndex].answers
+        
+        if crimeSwitch.isOn {
+            answersChosen.append(currentAnswers[0])
+        }
+        if bikingSwitch.isOn {
+            answersChosen.append(currentAnswers[1])
+        }
+        if pizzaSwitch.isOn {
+            answersChosen.append(currentAnswers[2])
+        }
+        if gamingSwitch.isOn {
+            answersChosen.append(currentAnswers[3])
+        }
+        nextQuestion()
+    }
+    
+    @IBAction func rangedAnswerButtonPressed() {
+        let currentAnswers = questions[questionIndex].answers
+        let index = Int(round(rangedSlider.value * Float(currentAnswers.count - 1)))
+        
+        answersChosen.append(currentAnswers[index])
+        
+        nextQuestion()
     }
     
     func updateUI() {
@@ -88,52 +190,30 @@ class QuestionsViewController: UIViewController {
         multipleStackView.isHidden = true
         rangedStackView.isHidden = true
         
-        navigationItem.title = "Question #\(questionIndex + 1)"
-        
         let currentQuestion = questions[questionIndex]
+        let currentAnswers = currentQuestion.answers
+        let totalProgress = Float(questionIndex) / Float(questions.count)
+        
+        navigationItem.title = "Question #\(questionIndex + 1)"
+        questionLabel.text = currentQuestion.text
+        progressBar.setProgress(totalProgress, animated: true)
         
         switch currentQuestion.type {
         case .single:
-            singleStackView.isHidden = false
+            updateSingleStack(using: currentAnswers)
         case .multiple:
-            multipleStackView.isHidden = false
+            updateMultiStack(using: currentAnswers)
         case .ranged:
-            rangedStackView.isHidden = false
+            updateRangeStack(using: currentAnswers)
         }
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        guard let sender = sender as? String, let destinationVC = segue.destination as? LandingViewController else {
-            return
-        }
-        
-        destinationVC.receivedValue = sender
-        
-    }
-    @IBAction func janMarButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "toCharacter", sender: "showCartman")
-    }
-    
-    @IBAction func aprJunButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "toCharacter", sender: "showSquiddy")
-    }
-    
-    @IBAction func julSepButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "toCharacter", sender: "showJoker")
-    }
-    
-    @IBAction func octDecButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "toCharacter", sender: "showFreddy")
-    }
-    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+      MARK: - Navigation
+     
+      In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      Get the new view controller using segue.destination.
+      Pass the selected object to the new view controller.
+     }
+     */
 }
